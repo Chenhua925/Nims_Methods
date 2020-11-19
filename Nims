@@ -17,7 +17,7 @@ class Nims {
         int a,b,c,remove, turn;
         //Input and Player names
         String input,p1,p2;
-    
+        String input ="x";
 
         //Random Number Generator From 1 to 10
         // Perameters: (int) (Math.random()*range) + min)
@@ -37,6 +37,7 @@ class Nims {
         while(!(a==0) || !(b==0) || !(c==0)) {
             //Changing the turn after every loop
             turn++;
+            PileChoose(turn, input, p1,p2);
 
  
         //Displays counters in each pile
@@ -159,4 +160,24 @@ class Nims {
             }
         reader.close();
     }
+     public static void PileChoose( int turn, String input, String p1, String p2){
+
+      System.out.println("Which pile do you want to choose?");
+    Scanner reader = new Scanner(System.in);
+     if (turn%2==0) {
+    System.out.print(p1+", choose a pile: ");
+             }
+            else {
+                System.out.print(p2+", choose a pile: ");
+            }
+                //Choose your pile
+                input = reader.next();
+                input = input.toUpperCase();
+            //You can only choose piles (A,B,C); RE-INPUT
+            while(!input.equals("A") && (!input.equals("B")) && (!input.equals("C"))) {
+                System.out.print(input+" is not a valid pile! Choose again:");
+                    input = reader.next();
+                    input = input.toUpperCase();
+    }
+}
 }
